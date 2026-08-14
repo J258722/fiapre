@@ -1,0 +1,124 @@
+Question 1
+from PIL import Image
+width = 600
+height = 400
+image = Image.new("RGB", (width, height), "white")
+image.show()
+image.save("frame_buffer.png")
+Question 2
+from PIL import Image
+image = Image.new("RGB", (400, 300), "white")
+image.putpixel((50, 50), (255, 0, 0)) # Red
+image.putpixel((150, 100), (0, 0, 255)) # Blue
+image.putpixel((250, 200), (0, 255, 0)) # Green
+image.putpixel((350, 250), (0, 0, 0)) # Black
+image.show()
+Question 3
+from PIL import Image
+image = Image.new("RGB", (400, 300), "white")
+def draw_pixel(image, x, y, colour):
+ for i in range(x, x + 20):
+ for j in range(y, y + 20):
+ image.putpixel((i, j), colour)
+draw_pixel(image, 50, 50, (255, 0, 0)) # Red
+draw_pixel(image, 150, 100, (0, 0, 255)) # Blue
+draw_pixel(image, 250, 150, (0, 255, 0)) # Green
+image.show()
+Question 4
+from PIL import Image
+image = Image.new("RGB", (400, 300), "white")
+for x in range(50, 351):
+ image.putpixel((x, 100), (255, 0, 0))
+for y in range(50, 251):
+ image.putpixel((200, y), (0, 0, 255))
+for x in range(50, 251):
+ y = x
+ image.putpixel((x, y), (0, 255, 0))
+image.show()
+Question 5
+from PIL import Image
+image = Image.new("RGB", (500, 300), "white")
+for x in range(50, 201):
+ image.putpixel((x, 50), (255, 0, 0))
+for x in range(50, 201):
+ image.putpixel((x, 150), (255, 0, 0))
+for y in range(50, 151):
+ image.putpixel((50, y), (255, 0, 0))
+for y in range(50, 151):
+ image.putpixel((200, y), (255, 0, 0))
+for x in range(250, 401):
+ image.putpixel((x, 100), (0, 0, 255))
+for x in range(250, 401):
+ image.putpixel((x, 250), (0, 0, 255))
+for y in range(100, 251):
+ image.putpixel((250, y), (0, 0, 255))
+for y in range(100, 251):
+ image.putpixel((400, y), (0, 0, 255))
+image.show()
+Question 6
+from PIL import Image
+image = Image.new("RGB", (400, 300), "white")
+orange = (255, 165, 0)
+for x in range(100, 301):
+ for y in range(100, 251):
+ image.putpixel((x, y), orange)
+image.show()
+Question 7
+from PIL import Image
+image = Image.new("RGB", (600, 300), "white")
+for x in range(200):
+ red = int((x / 199) * 255)
+ for y in range(300):
+ image.putpixel((x, y), (red, 0, 0))
+for x in range(200, 400):
+ position = x - 200
+ green = int((position / 199) * 255)
+ for y in range(300):
+ image.putpixel((x, y), (0, green, 0))
+for x in range(400, 600):
+ position = x - 400
+ blue = int((position / 199) * 255)
+ for y in range(300):
+ image.putpixel((x, y), (0, 0, blue))
+image.show()
+Question 8 — AMFEX
+from PIL import Image
+def rectangle(x1, y1, x2, y2, colour):
+ for x in range(x1, x2 + 1):
+ for y in range(y1, y2 + 1):
+ image.putpixel((x, y), colour)
+red = (255, 0, 0)
+blue = (0, 0, 255)
+green = (0, 255, 0)
+orange = (255, 165, 0)
+purple = (150, 0, 200)
+# LETTER A
+rectangle(50, 50, 110, 70, red)
+rectangle(50, 70, 70, 180, red)
+rectangle(90, 70, 110, 180, red)
+rectangle(70, 100, 90, 120, red)
+# LETTER M
+rectangle(180, 50, 200, 180, blue)
+rectangle(200, 50, 220, 80, blue)
+rectangle(220, 70, 240, 100, blue)
+rectangle(240, 50, 260, 80, blue)
+rectangle(260, 50, 280, 180, blue)
+# LETTER F
+rectangle(350, 50, 370, 180, green)
+rectangle(370, 50, 430, 70, green)
+rectangle(370, 100, 420, 120, green)
+# LETTER E
+rectangle(480, 50, 500, 180, orange)
+rectangle(500, 50, 560, 70, orange)
+rectangle(500, 100, 550, 120, orange)
+rectangle(500, 160, 560, 180, orange)
+# LETTER X
+rectangle(620, 50, 640, 80, purple)
+rectangle(680, 50, 700, 80, purple)
+rectangle(640, 80, 660, 120, purple)
+rectangle(660, 80, 680, 120, purple)
+rectangle(640, 120, 680, 150, purple)
+rectangle(620, 150, 640, 180, purple)
+rectangle(680, 150, 700, 180, purple)
+image.show()
+image.save("AMFEX_pixel_art.png")
